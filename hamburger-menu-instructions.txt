@@ -1,0 +1,59 @@
+To add a hamburger menu in the mobile responsive view that toggles the navigation links (About, Skills, Projects, Contact) on click, follow these steps:
+
+1. HTML:
+Replace the existing menu icon element with the following div structure for the hamburger menu:
+
+<div id="menu-icon" onclick="toggleMenu()">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+
+Ensure the navigation ul has id="nav-links" and is initially hidden in CSS or inline style:
+<ul id="nav-links" style="display:none;">
+  <li><a href="#header">Home</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="#services">Skills</a></li>
+  <li><a href="#portfolio">Projects</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+
+2. CSS:
+Add styles for the hamburger menu bars:
+
+#menu-icon {
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+#menu-icon .bar {
+  height: 4px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+3. JavaScript:
+Ensure the toggleMenu function toggles the display of the nav-links:
+
+function toggleMenu() {
+  const navLinks = document.getElementById("nav-links");
+  if (navLinks.style.display === "block") {
+    navLinks.style.display = "none";
+  } else {
+    navLinks.style.display = "block";
+  }
+}
+
+Add this script in your HTML if not already present.
+
+4. Responsive:
+Make sure the #menu-icon is only visible in mobile view (e.g., max-width: 768px) and the nav-links are hidden by default.
+
+This approach will create a hamburger menu button that toggles the navigation menu on mobile devices.
+
+If you want me to apply these changes directly, please allow editing index.html and style.css.
